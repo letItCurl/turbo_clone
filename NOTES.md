@@ -17,4 +17,14 @@ isolate_namespace TurboClone
 
 test/dummy -> rails app, automated test and manual test
 ---
+
 ### Do the intall in the root folder
+
+```ruby
+# engine.rb is the glue
+initializer "turbo.helper" do
+  ActiveSupport.on_load :action_controller_base do
+    helper TurboClone::Engine.helpers
+  end
+end
+```
