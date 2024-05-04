@@ -15,5 +15,6 @@ isolate_namespace TurboClone
 ```
 /lib/task -> auto install
 
-test/dummy -> rails app
+test/dummy -> rails app, automated test and manual test
 ---
+### Do the intall in the root folder
