@@ -28,3 +28,5 @@ initializer "turbo.helper" do
   end
 end
 ```
+
+bunble and test from root folder
