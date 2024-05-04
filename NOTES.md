@@ -30,3 +30,12 @@ end
 ```
 
 bunble and test from root folder
+
+
+### For testing
+```ruby
+require "test_helper"
+
+class TurboClone::FramesHelperTest < ActionView::TestCase
+end
+```
