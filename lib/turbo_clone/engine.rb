@@ -21,6 +21,14 @@ module TurboClone
       end
     end
 
+    initializer "turbo.renderer" do
+      ActiveSupport.on_load :action_controller do
+        ActionController::Renderers.add :turbo_stream do |turbo_stream_html, options|
+          turbo_stream_html
+        end
+      end
+    end
+
     # so that as: turbo stream works for testing
     initializer "turbo.integration_test_request_encoding" do
       ActiveSupport.on_load :action_dispatch_integration_test do
