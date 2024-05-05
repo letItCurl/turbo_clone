@@ -1,4 +1,6 @@
-<%= turbo_stream.replace @article, partial: "articles/article", locals: { article: @article } %>
+<%= turbo_stream.replace @article do %>
+  <%= render @article %>
+<% end %>
 <% if false %>
   <%# turbo_stream.replace @article, partial: ... %>
   <%# turbo_stream.replace @article, "" %>

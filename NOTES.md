@@ -41,3 +41,11 @@ end
 ```
 
 render body: "helo"
+
+
+**rendering passed to hash then splated if any
+
+### Append like a pro
+a = {d: ["hello"]}
+a[:d] |= [:thm]
+=> {:d=>["hello", :thm]}
