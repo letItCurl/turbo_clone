@@ -10,6 +10,7 @@ module TurboClone
 
     initializer "turbo.helper" do
       ActiveSupport.on_load :action_controller_base do
+        include TurboClone::Streams::TurboStreamsTagBuilder
         helper TurboClone::Engine.helpers
       end
     end
