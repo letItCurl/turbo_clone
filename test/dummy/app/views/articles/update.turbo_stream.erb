@@ -1,6 +1,4 @@
-<%= turbo_stream.replace @article do %>
-  <%= render @article %>
-<% end %>
+<%= turbo_stream.replace @article, "Hello" %>
 <% if false %>
   <%# turbo_stream.replace @article, partial: ... %>
   <%# turbo_stream.replace @article, "" %>
