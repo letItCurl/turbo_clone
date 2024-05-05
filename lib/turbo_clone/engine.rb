@@ -29,6 +29,12 @@ module TurboClone
       end
     end
 
+    initializer "turbo.broadcastable" do
+      ActiveSupport.on_load :active_record do
+        include TurboClone::Broadcastable
+      end
+    end
+
     # so that as: turbo stream works for testing
     initializer "turbo.integration_test_request_encoding" do
       ActiveSupport.on_load :action_dispatch_integration_test do
