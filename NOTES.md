@@ -39,3 +39,5 @@ require "test_helper"
 class TurboClone::FramesHelperTest < ActionView::TestCase
 end
 ```
+
+render body: "helo"
