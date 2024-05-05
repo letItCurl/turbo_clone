@@ -1,11 +1,1 @@
-<%= turbo_stream.replace @article, "Hello" %>
-<% if false %>
-  <%# turbo_stream.replace @article, partial: ... %>
-  <%# turbo_stream.replace @article, "" %>
-  <%# turbo_stream.replace @article do ... end %>
-  <turbo-stream target="<%= dom_id(@article) %>" action="replace">
-    <template>
-      <%= render partial: "articles/article", locals: { article: @article }, formats: :html %>
-    </template>
-  </turbo-stream>
-<% end %>
+<%= turbo_stream.replace @article %>

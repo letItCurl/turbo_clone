@@ -9,14 +9,26 @@ class TurboClone::Streams::TagBuilder
     action :replace, target, content, **rendering, &block
   end
 
+  def update(target, content = nil, **rendering, &block)
+    action :update, target, content, **rendering, &block
+  end
+
+  def prepend(target, content = nil, **rendering, &block)
+    action :prepend, target, content, **rendering, &block
+  end
+
+  def remove(target, content = nil, **rendering, &block)
+    action :remove, target
+  end
+
   def action(name, target, content = nil, **rendering, &block)
-    template = render_template(target, content, **rendering, &block)
+    template = render_template(target, content, **rendering, &block) unless name == :remove
 
     turbo_stream_action_tag(name, target: target, template: template)
   end
 
   def turbo_stream_action_tag(action, target:, template:)
-    template = "<template>#{template}</template>"
+    template = (action == :remove) ? "" : "<template>#{template}</template>"
 
     if target = convert_to_turbo_stream_dom_id(target)
       %(<turbo-stream target="#{target}" action="#{action}">#{template}</turbo-stream>).html_safe
@@ -25,9 +37,9 @@ class TurboClone::Streams::TagBuilder
     end
   end
 
-  def render_template(target, content = nil,  **rendering, &block)
+  def render_template(target, content = nil, **rendering, &block)
     if content
-      content
+      content.respond_to?(:to_partial_path) ? @view_content.render(partial: content, formats: :html) : content
     elsif block_given?
       @view_content.capture(&block)
     elsif rendering.any?
