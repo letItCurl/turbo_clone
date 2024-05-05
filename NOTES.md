@@ -49,3 +49,11 @@ render body: "helo"
 a = {d: ["hello"]}
 a[:d] |= [:thm]
 => {:d=>["hello", :thm]}
+
+
+# render from console
+```ruby
+template = ApplicationController.render("articles/update", assigns: { article: a })
+
+ActionCable.server.broadcast "articles", template
+```
