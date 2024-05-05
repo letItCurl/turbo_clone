@@ -16,7 +16,7 @@ module TurboClone::Broadcastable
   def broadcast_rendering_with_defaults(rendering)
     rendering.tap do |r|
       r[:locals] = (r[:locals] || {}).reverse_merge!(model_name.element.to_sym => self)
-      r[:locals] ||= self.to_partial_path
+      r[:partial] ||= self.to_partial_path
     end
   end
 

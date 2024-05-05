@@ -1,4 +1,4 @@
-module TurboClone::Stream::Broadcasts
+module TurboClone::Streams::Broadcasts
   include TurboClone::ActionHelper
 
   def broadcast_append_to(*streamables, **options)
