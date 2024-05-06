@@ -57,3 +57,7 @@ template = ApplicationController.render("articles/update", assigns: { article: a
 
 ActionCable.server.broadcast "articles", template
 ```
+
+# good for blogs:
+
+https://hotrails.podia.com/view/courses/rebuilding-turbo-rails/1408808-security-concerns/4367476-active-support-message-verifier
