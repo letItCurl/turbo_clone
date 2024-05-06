@@ -32,7 +32,7 @@ module TurboClone::Streams::Broadcasts
   end
 
   def broadcast_replace_later_to(*streamables, **options)
-    broadcast_action_later_to(*streamables, action: :prepend, **options)
+    broadcast_action_later_to(*streamables, action: :replace, **options)
   end
 
   def broadcast_action_later_to(*streamables, action:, target: nil, **rendering)
