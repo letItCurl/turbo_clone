@@ -15,7 +15,7 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
 end
 
 
-# Delegat + monkey patching
+# Delegate + monkey patching
 module ActionViewTestCaseExtensions
   def render(*arguments, **options, &block)
     ApplicationController.render(*arguments, **options, &block)
@@ -23,5 +23,9 @@ module ActionViewTestCaseExtensions
 end
 
 class ActionDispatch::IntegrationTest
+  include ActionViewTestCaseExtensions
+end
+
+class ActionCable::Channel::TestCase
   include ActionViewTestCaseExtensions
 end
